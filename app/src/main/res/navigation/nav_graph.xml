@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/landingFragment"
-        android:name="com.example.themovie.view.LandingFragment"
+        android:name="com.example.themovie.view.landing.LandingFragment"
         android:label="fragment_landing"
         tools:layout="@layout/fragment_landing" />
 
