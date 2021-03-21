@@ -1,4 +1,4 @@
-package com.example.themovie.view;
+package com.example.themovie.view.mainActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

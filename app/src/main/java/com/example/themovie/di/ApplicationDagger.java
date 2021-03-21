@@ -9,6 +9,7 @@ public class ApplicationDagger extends DaggerApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
     }
 
     @Override

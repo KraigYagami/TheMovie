@@ -1,4 +1,4 @@
-package com.example.themovie.view;
+package com.example.themovie.view.splash;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
