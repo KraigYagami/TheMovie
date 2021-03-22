@@ -1,7 +1,7 @@
 package com.example.themovie.model.landing;
 
 import com.example.themovie.api.TheMovieApi;
-import com.example.themovie.data.DataPageMovie;
+import com.example.themovie.dto.DataPageMoviesDTO;
 
 import javax.inject.Inject;
 
@@ -18,7 +18,7 @@ public class LandingRepositoryImpl implements LandingRepository {
     }
 
     @Override
-    public Single<DataPageMovie> getPopularMovies() {
+    public Single<DataPageMoviesDTO> getPopularMovies() {
         return theMovieApi.getPopularMovies().subscribeOn(Schedulers.io());
     }
 }

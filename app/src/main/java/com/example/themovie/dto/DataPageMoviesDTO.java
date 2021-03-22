@@ -1,16 +1,16 @@
-package com.example.themovie.data;
+package com.example.themovie.dto;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class DataPageMovie {
+public class DataPageMoviesDTO {
 
     @SerializedName("page")
     private int page;
 
     @SerializedName("results")
-    private List<Movie> results;
+    private List<MovieDTO> results;
 
     @SerializedName("total_pages")
     private int totalPages;
@@ -22,7 +22,7 @@ public class DataPageMovie {
         return page;
     }
 
-    public List<Movie> getResults() {
+    public List<MovieDTO> getResults() {
         return results;
     }
 

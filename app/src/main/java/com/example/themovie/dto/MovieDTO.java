@@ -1,12 +1,10 @@
-package com.example.themovie.data;
+package com.example.themovie.dto;
 
 import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.lang.reflect.Array;
-
-public class Movie {
+public class MovieDTO {
 
     @Nullable
     @SerializedName("adult")
@@ -46,10 +44,6 @@ public class Movie {
     @Nullable
     @SerializedName("title")
     private String title;
-
-    @Nullable
-    @SerializedName("video")
-    private Boolean video;
 
     @Nullable
     @SerializedName("vote_average")
@@ -105,11 +99,6 @@ public class Movie {
     @Nullable
     public String getTitle() {
         return title;
-    }
-
-    @Nullable
-    public Boolean getVideo() {
-        return video;
     }
 
     @Nullable

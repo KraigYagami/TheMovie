@@ -11,10 +11,11 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
+            android:id="@+id/action_splashFragment_to_landingFragment"
+            app:destination="@id/landingFragment"
             app:exitAnim="@anim/fade_out_short"
             app:popExitAnim="@anim/fade_out_short"
-            android:id="@+id/action_splashFragment_to_landingFragment"
-            app:destination="@id/landingFragment" />
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/landingFragment"

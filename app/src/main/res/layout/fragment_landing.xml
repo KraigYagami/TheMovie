@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_api_movie"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.landing.LandingFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_movies"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/small_margin"
