@@ -1,6 +1,7 @@
 package com.example.themovie.view.landing;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class LandingFragment extends DaggerFragment implements LandingView {
 
         binding = FragmentLandingBinding.inflate(inflater, container, false);
 
+        presenter.getPopularMovies();
 
         return binding.getRoot();
     }
@@ -38,8 +40,5 @@ public class LandingFragment extends DaggerFragment implements LandingView {
         binding = null;
     }
 
-    @Override
-    public void showMessage(String message) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
-    }
+
 }

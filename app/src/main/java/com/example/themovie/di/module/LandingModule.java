@@ -1,5 +1,6 @@
 package com.example.themovie.di.module;
 
+import com.example.themovie.api.TheMovieApi;
 import com.example.themovie.presenter.landing.LandingPresenter;
 import com.example.themovie.presenter.landing.LandingPresenterImpl;
 import com.example.themovie.model.landing.LandingRepository;
@@ -24,8 +25,9 @@ public abstract class LandingModule {
     }
 
     @Provides
-    static LandingRepository provideRepository(LandingRepositoryImpl repository) {
-        return repository;
+    static LandingRepository provideRepository(TheMovieApi theMovieApi) {
+        return new LandingRepositoryImpl(theMovieApi);
     }
+
 }
 

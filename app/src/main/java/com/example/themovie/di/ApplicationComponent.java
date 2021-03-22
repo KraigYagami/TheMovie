@@ -3,7 +3,8 @@ package com.example.themovie.di;
 
 import android.app.Application;
 
-import com.example.themovie.di.module.FragmentModule;
+import com.example.themovie.di.module.ApplicationModule;
+import com.example.themovie.di.module.FragmentBindingModule;
 
 import javax.inject.Singleton;
 
@@ -16,7 +17,8 @@ import dagger.android.support.DaggerApplication;
 @Singleton
 @Component(modules = {
         AndroidSupportInjectionModule.class,
-        FragmentModule.class
+        FragmentBindingModule.class,
+        ApplicationModule.class
 })
 
 public interface ApplicationComponent extends AndroidInjector<DaggerApplication> {

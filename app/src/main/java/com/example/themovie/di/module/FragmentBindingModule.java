@@ -7,7 +7,7 @@ import dagger.android.ContributesAndroidInjector;
 
 
 @Module
-public abstract class FragmentModule {
+public abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector(modules = {LandingModule.class})
     abstract LandingFragment contributeLandingFragment();
