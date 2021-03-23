@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.navigation.Navigation;
 
 import com.example.themovie.dataModelUI.Movie;
 import com.example.themovie.databinding.FragmentLandingBinding;
@@ -44,9 +44,9 @@ public class LandingFragment extends DaggerFragment implements LandingView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        moviesAdapter = new MoviesAdapter(movie -> {
-                Toast.makeText(requireContext(), "Test" + movie.getTitle(), Toast.LENGTH_SHORT).show();
-        });
+        moviesAdapter = new MoviesAdapter(movie -> Navigation.findNavController(binding.getRoot()).navigate(
+                LandingFragmentDirections.actionLandingFragmentToDetailMovieFragment(movie)
+        ));
 
         binding.recyclerViewMovies.setAdapter(moviesAdapter);
     }
@@ -60,5 +60,16 @@ public class LandingFragment extends DaggerFragment implements LandingView {
     @Override
     public void setDataMovies(List<Movie> movies) {
         moviesAdapter.setMovies(movies);
+    }
+
+    @Override
+    public void hideLoading() {
+        binding.imageViewLoading.setVisibility(View.GONE);
+        binding.progress.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showListMovies() {
+        binding.recyclerViewMovies.setVisibility(View.VISIBLE);
     }
 }

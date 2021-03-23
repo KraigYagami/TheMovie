@@ -8,4 +8,8 @@ public interface LandingView {
 
     void setDataMovies(List<Movie> movies);
 
+    void hideLoading();
+
+    void showListMovies();
+
 }

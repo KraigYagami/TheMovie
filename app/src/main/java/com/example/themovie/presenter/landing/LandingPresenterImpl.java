@@ -30,12 +30,14 @@ public class LandingPresenterImpl implements LandingPresenter {
     @Override
     public void getPopularMovies() {
 
-        repository.getPopularMovies()
+        repository.getPopularMovies(1)
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(dataPageMoviesDTO -> toListMovies(dataPageMoviesDTO.getResults()))
                 .subscribe(dataPageMovie -> {
                     listMovie = dataPageMovie;
                     view.setDataMovies(listMovie);
+                    view.hideLoading();
+                    view.showListMovies();
                 }, throwable -> Log.e("ERROR", "error " + throwable));
 
     }
@@ -46,16 +48,17 @@ public class LandingPresenterImpl implements LandingPresenter {
 
         for (MovieDTO movieDTO : listMovieDTO) {
             movies.add(
-                new Movie(
-                        movieDTO.getId(),
-                        movieDTO.getOriginalLanguage(),
-                        movieDTO.getTitle(),
-                        movieDTO.getReleaseDate(),
-                        movieDTO.getOverview(),
-                        movieDTO.getPosterPath(),
-                        movieDTO.getVoteAverage(),
-                        movieDTO.getVoteCount()
-                )
+                    new Movie(
+                            movieDTO.getId(),
+                            movieDTO.getOriginalLanguage(),
+                            movieDTO.getTitle(),
+                            movieDTO.getReleaseDate(),
+                            movieDTO.getOverview(),
+                            movieDTO.getPosterPath(),
+                            movieDTO.getBackdropPath(),
+                            movieDTO.getVoteAverage(),
+                            movieDTO.getVoteCount()
+                    )
             );
         }
 

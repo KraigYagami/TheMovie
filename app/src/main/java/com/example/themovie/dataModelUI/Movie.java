@@ -1,6 +1,12 @@
 package com.example.themovie.dataModelUI;
 
-public class Movie {
+
+import androidx.annotation.Keep;
+
+import java.io.Serializable;
+
+@Keep
+public class Movie implements Serializable {
 
     private int id;
 
@@ -14,7 +20,9 @@ public class Movie {
 
     private String posterPath;
 
-    private Double voteAverage;
+    private String backdropPath;
+
+    private float voteAverage;
 
     private int voteCount;
 
@@ -62,15 +70,23 @@ public class Movie {
         return posterPath;
     }
 
+    public String getBackdropPath() {
+        return backdropPath;
+    }
+
+    public void setBackdropPath(String backdropPath) {
+        this.backdropPath = backdropPath;
+    }
+
     public void setPosterPath(String posterPath) {
         this.posterPath = posterPath;
     }
 
-    public Double getVoteAverage() {
+    public float getVoteAverage() {
         return voteAverage;
     }
 
-    public void setVoteAverage(Double voteAverage) {
+    public void setVoteAverage(float voteAverage) {
         this.voteAverage = voteAverage;
     }
 
@@ -85,13 +101,14 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int id, String originalLanguage, String title, String releaseDate, String overview, String posterPath, Double voteAverage, int voteCount) {
+    public Movie(int id, String originalLanguage, String title, String releaseDate, String overview, String posterPath, String backdropPath, float voteAverage, int voteCount) {
         this.id = id;
         this.originalLanguage = originalLanguage;
         this.title = title;
         this.releaseDate = releaseDate;
         this.overview = overview;
         this.posterPath = posterPath;
+        this.backdropPath = backdropPath;
         this.voteAverage = voteAverage;
         this.voteCount = voteCount;
     }

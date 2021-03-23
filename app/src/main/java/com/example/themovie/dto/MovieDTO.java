@@ -45,9 +45,8 @@ public class MovieDTO {
     @SerializedName("title")
     private String title;
 
-    @Nullable
     @SerializedName("vote_average")
-    private Double voteAverage;
+    private float voteAverage;
 
     @SerializedName("vote_count")
     private int voteCount;
@@ -101,8 +100,7 @@ public class MovieDTO {
         return title;
     }
 
-    @Nullable
-    public Double getVoteAverage() {
+    public float getVoteAverage() {
         return voteAverage;
     }
 

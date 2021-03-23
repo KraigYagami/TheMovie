@@ -22,7 +22,7 @@ public class SplashFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        binding =  FragmentSplashBinding.inflate(inflater, container, false);
+        binding = FragmentSplashBinding.inflate(inflater, container, false);
 
         Animation fadeId = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
 
@@ -32,16 +32,16 @@ public class SplashFragment extends Fragment {
 
         binding.imageViewLogoGoDigital.startAnimation(fadeId);
 
-        fadeId.setAnimationListener(new Animation.AnimationListener(){
+        fadeId.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
+                //Do Nothing
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
 
-                Navigation.findNavController(binding.imageViewLogoGoDigital).navigate(
+                Navigation.findNavController(binding.getRoot()).navigate(
                         SplashFragmentDirections.actionSplashFragmentToLandingFragment()
                 );
 
@@ -49,7 +49,7 @@ public class SplashFragment extends Fragment {
 
             @Override
             public void onAnimationRepeat(Animation animation) {
-
+                //Do Nothing
             }
         });
 

@@ -21,6 +21,21 @@
         android:id="@+id/landingFragment"
         android:name="com.example.themovie.view.landing.LandingFragment"
         android:label="fragment_landing"
-        tools:layout="@layout/fragment_landing" />
-
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landingFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.example.themovie.view.detailMovie.DetailMovieFragment"
+        android:label="fragment_detail_movie"
+        tools:layout="@layout/fragment_detail_movie">
+        <argument android:name="movie"
+            app:argType="com.example.themovie.dataModelUI.Movie"/>
+    </fragment>
 </navigation>

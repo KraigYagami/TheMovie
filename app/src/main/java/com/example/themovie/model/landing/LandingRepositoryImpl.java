@@ -18,7 +18,7 @@ public class LandingRepositoryImpl implements LandingRepository {
     }
 
     @Override
-    public Single<DataPageMoviesDTO> getPopularMovies() {
-        return theMovieApi.getPopularMovies().subscribeOn(Schedulers.io());
+    public Single<DataPageMoviesDTO> getPopularMovies(int page) {
+        return theMovieApi.getPopularMovies(page).subscribeOn(Schedulers.io());
     }
 }

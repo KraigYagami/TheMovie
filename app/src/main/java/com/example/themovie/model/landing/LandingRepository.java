@@ -6,6 +6,6 @@ import io.reactivex.rxjava3.core.Single;
 
 public interface LandingRepository {
 
-    Single<DataPageMoviesDTO> getPopularMovies();
+    Single<DataPageMoviesDTO> getPopularMovies(int page);
 
 }
