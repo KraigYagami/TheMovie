@@ -19,7 +19,9 @@ public class LandingPresenterImpl implements LandingPresenter {
     LandingView view;
     LandingRepository repository;
 
-    List<Movie> listMovie;
+    List<Movie> listMovie = new ArrayList<>();
+
+    int currentPage = 1;
 
     @Inject
     public LandingPresenterImpl(LandingView view, LandingRepository repository) {
@@ -30,16 +32,22 @@ public class LandingPresenterImpl implements LandingPresenter {
     @Override
     public void getPopularMovies() {
 
-        repository.getPopularMovies(1)
+        repository.getPopularMovies(currentPage)
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(dataPageMoviesDTO -> toListMovies(dataPageMoviesDTO.getResults()))
                 .subscribe(dataPageMovie -> {
-                    listMovie = dataPageMovie;
+                    currentPage = dataPageMovie.getPage();
+                    listMovie.addAll(toListMovies(dataPageMovie.getResults()));
                     view.setDataMovies(listMovie);
                     view.hideLoading();
                     view.showListMovies();
                 }, throwable -> Log.e("ERROR", "error " + throwable));
 
+    }
+
+    @Override
+    public void onLoadNextPage() {
+        currentPage++;
+        getPopularMovies();
     }
 
     @Override

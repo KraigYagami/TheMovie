@@ -9,5 +9,7 @@ public interface LandingPresenter {
 
     void getPopularMovies();
 
+    void onLoadNextPage();
+
     List<Movie> toListMovies(List<MovieDTO> listMovieDTO);
 }

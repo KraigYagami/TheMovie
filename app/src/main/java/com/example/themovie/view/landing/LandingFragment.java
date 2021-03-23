@@ -8,13 +8,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.themovie.dataModelUI.Movie;
 import com.example.themovie.databinding.FragmentLandingBinding;
 import com.example.themovie.presenter.landing.LandingPresenter;
+import com.example.themovie.utils.Constants;
 import com.example.themovie.view.landing.adapter.MoviesAdapter;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -49,6 +53,8 @@ public class LandingFragment extends DaggerFragment implements LandingView {
         ));
 
         binding.recyclerViewMovies.setAdapter(moviesAdapter);
+
+        scrollData(binding.recyclerViewMovies);
     }
 
     @Override
@@ -60,6 +66,25 @@ public class LandingFragment extends DaggerFragment implements LandingView {
     @Override
     public void setDataMovies(List<Movie> movies) {
         moviesAdapter.setMovies(movies);
+    }
+
+    @Override
+    public void scrollData(RecyclerView recyclerView) {
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int visibleItemCount = Objects.requireNonNull(recyclerView.getLayoutManager()).getChildCount();
+                int totalItemCount = recyclerView.getLayoutManager().getItemCount();
+                int firstVisibleItemPosition = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+
+                if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount - Constants.PAGINATION_MARGIN
+                        && firstVisibleItemPosition >= 0
+                        && totalItemCount >= Constants.PAGE_SIZE) {
+                    presenter.onLoadNextPage();
+                }
+            }
+        });
     }
 
     @Override

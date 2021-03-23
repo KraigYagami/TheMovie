@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.themovie.dataModelUI.Movie;
@@ -33,6 +34,8 @@ public class DetailMovieFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentDetailMovieBinding.inflate(inflater, container, false);
+
+        binding.imageButtonBack.setOnClickListener(view -> Navigation.findNavController(binding.getRoot()).popBackStack());
 
         setInformationMovie();
 

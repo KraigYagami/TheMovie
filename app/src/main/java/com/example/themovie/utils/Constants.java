@@ -12,7 +12,10 @@ public final class Constants {
 
     public static final String THE_MOVIE_API_KEY = "39252c48a9121e00bdee8b7c71c620ae";
 
-    //Popular Movies
     public static final String GET_POPULAR_MOVIES = "movie/popular";
+
+    public static final int PAGINATION_MARGIN = 10;
+
+    public static final int PAGE_SIZE = 20;
 
 }
