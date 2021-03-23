@@ -1,7 +1,5 @@
 package com.example.themovie.presenter.landing;
 
-import android.util.Log;
-
 import com.example.themovie.dataModelUI.Movie;
 import com.example.themovie.dto.MovieDTO;
 import com.example.themovie.model.landing.LandingRepository;
@@ -40,7 +38,8 @@ public class LandingPresenterImpl implements LandingPresenter {
                     view.setDataMovies(listMovie);
                     view.hideLoading();
                     view.showListMovies();
-                }, throwable -> Log.e("ERROR", "error " + throwable));
+                    view.resetErrorLoadData();
+                }, throwable -> view.errorLoadData(currentPage));
 
     }
 

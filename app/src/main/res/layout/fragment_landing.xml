@@ -25,46 +25,97 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <ImageView
             android:id="@+id/imageView_loading"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:contentDescription="@string/text_no_description"
             android:src="@drawable/ic_popcorn"
             app:layout_constraintBottom_toTopOf="@id/progress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            tools:visibility="visible"
-            android:contentDescription="@string/text_no_description" />
+            tools:visibility="visible" />
 
         <ProgressBar
             android:id="@+id/progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/normal_margin"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/materialButton_reload"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView_loading"
-            tools:visibility="gone" />
+            tools:visibility="visible" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButton_reload"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:backgroundTint="@color/color_branding"
+            android:drawableEnd="@drawable/ic_reload"
+            android:drawableTint="@android:color/white"
+            android:text="@string/text_reload"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_movies"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_marginStart="@dimen/small_margin"
             android:layout_marginTop="@dimen/small_margin"
             android:layout_marginEnd="@dimen/small_margin"
-            android:paddingBottom="@dimen/small_padding"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/container_reload_bottom"
+            app:layout_constraintTop_toTopOf="parent"
             app:spanCount="3"
             tools:itemCount="20"
             tools:listitem="@layout/fragment_movie_item"
-            tools:visibility="gone"/>
+            tools:visibility="gone" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_reload_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/materialButton_reload_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/x_small_margin"
+                android:layout_marginBottom="@dimen/x_small_margin"
+                android:backgroundTint="@color/color_branding"
+                android:drawableEnd="@drawable/ic_reload"
+                android:drawableTint="@android:color/white"
+                android:text="@string/text_reload"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progress_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/materialButton_reload_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/materialButton_reload_bottom" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

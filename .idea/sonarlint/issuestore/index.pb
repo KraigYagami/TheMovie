@@ -11,8 +11,6 @@ k
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 q
 Aapp/src/main/java/com/example/themovie/dto/DataPageMoviesDTO.java,e/9/e9b3f0705d73ef0ce07fc87f0f1159f476bcd5eb
-[
-+app/src/main/res/layout/fragment_splash.xml,c/2/c2108990ed152bf3b25e1e9e1b88238ca6696534
 ~
 Napp/src/main/java/com/example/themovie/presenter/landing/LandingPresenter.java,8/6/86d895f8effc0b960c2a6ef12affdb87e13412de
 {

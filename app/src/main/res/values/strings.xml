@@ -4,4 +4,6 @@
     <string name="text_power_by">Power by</string>
     <string name="text_no_description">no description</string>
     <string name="text_overview">Overview</string>
+    <string name="text_reload">Reload</string>
+    <string name="text_error_data">Error loading files. Retry</string>
 </resources>

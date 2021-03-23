@@ -16,4 +16,8 @@ public interface LandingView {
 
     void showListMovies();
 
+    void resetErrorLoadData();
+
+    void errorLoadData(int currentPage);
+
 }

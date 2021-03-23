@@ -14,7 +14,7 @@ public final class Constants {
 
     public static final String GET_POPULAR_MOVIES = "movie/popular";
 
-    public static final int PAGINATION_MARGIN = 10;
+    public static final int PAGINATION_MARGIN = 8;
 
     public static final int PAGE_SIZE = 20;
 
